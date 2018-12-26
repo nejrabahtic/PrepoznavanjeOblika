@@ -1,5 +1,5 @@
 function [] = unsharpmasking()
-    folderslike = dir('../../Slike/SlikeBiljka3/*.png');
+    folderslike = dir('../../Deskriptor/SL1/*.png');
     [folderslikesize, br] = size(folderslike);
     for slika=1:folderslikesize
         rgb = imread(folderslike(slika).name);
