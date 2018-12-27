@@ -14,17 +14,17 @@ testData = []
 labels = []
 valid_images = [".jpg",".jpeg", ".png"]
 
-for f in os.listdir('/home/bebo/Documents/PrepoznavanjeOblika/TestNew'):
+for f in os.listdir('/home/nejra/Documents/PrepoznavanjeOblika/Validacija/ValidacijaBiljka1'):
     name, ext = os.path.splitext(f)
     if ext.lower() not in valid_images:
         continue
 
-    if (f == '18.jpg' or f == '21.jpg' or f == '22.jpg' or f == '29.jpg' or f == '33.jpg' or f == '34.jpg'):
+    if (f == '1.jpg' or f == '2.jpg' or f == '3.jpg' or f == '29.jpg' or f == '33.jpg' or f == '34.jpg'):
 	labels.append(0)
     else: 
 	labels.append(1)    
 
-    image = Image.open(os.path.join('/home/bebo/Documents/PrepoznavanjeOblika/TestNew',f))
+    image = Image.open(os.path.join('/home/nejra/Documents/PrepoznavanjeOblika/Validacija/ValidacijaBiljka1',f))
     hf, hi = createDescriptor(image)
     testData.append(hf)
 
@@ -43,4 +43,3 @@ print('Sensitivity : ', sensitivity1 )
 
 specificity1 = cm1[1,1]/(cm1[1,0]+cm1[1,1])
 print('Specificity : ', specificity1)
-

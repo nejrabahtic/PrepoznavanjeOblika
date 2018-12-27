@@ -5,13 +5,13 @@ from PIL import Image
 from sklearn import svm
 from skimage.feature import hog
 from sklearn.externals import joblib
-from createDescriptor import *
+from create_descriptor import *
 
 trainData = []
 labels = []
 valid_images = [".jpg",".jpeg", ".png"]
 
-imageDir = "/home/bebo/Documents/PrepoznavanjeOblika/TrainNew"
+imageDir = "/home/nejra/Documents/PrepoznavanjeOblika/Validacija/ValidacijaBiljka1"
 
 for f in os.listdir(imageDir):
     name, ext = os.path.splitext(f)
@@ -32,7 +32,5 @@ clf = svm.SVC(kernel='linear', C=1.0)
 clf.fit(np.array(trainData), labels)
 
 #eksport modela
-filename = 'final_leaf_model.sav'
+filename = 'final_v_model.sav'
 joblib.dump(clf, filename)
-
-

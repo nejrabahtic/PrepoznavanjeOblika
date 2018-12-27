@@ -6,9 +6,9 @@ from PIL import Image
 import random
 import cv2
 
-path_biljka1 = 'C:/Users/NejraBahtic/Desktop/POOS/Slike/SlikeBiljka1'
-path_biljka2 = 'C:/Users/NejraBahtic/Desktop/POOS/Slike/SlikeBiljka2'
-path_biljka3 = 'C:/Users/NejraBahtic/Desktop/POOS/Slike/SlikeBiljka3'
+path_biljka1 = '/home/nejra/Documents/PrepoznavanjeOblikaSlike/SlikeBiljka1'
+path_biljka2 = '/home/nejra/Documents/PrepoznavanjeOblikaSlike/SlikeBiljka2'
+path_biljka3 = '/home/nejra/Documents/PrepoznavanjeOblikaSlike/SlikeBiljka3'
 
 valid_images = [".jpg",".jpeg", ".png"]
 
@@ -29,13 +29,13 @@ train_data, test_data = train_test_split(image_list, test_size=0.2)
 
 br=1
 for img in train_data:
-    newpath = 'C:/Users/NejraBahtic/Desktop/POOS/Divide/Train'
+    newpath = '/home/nejra/Documents/PrepoznavanjeOblikaDivide/Train'
     img = np.array(img)
     saveImage(cv2.cvtColor(img, cv2.COLOR_BGR2RGB), newpath, str(br)+".jpg")
     br += 1
 
 for img in test_data:
-    newpath = 'C:/Users/NejraBahtic/Desktop/POOS/Divide/Test'
+    newpath = '/home/nejra/Documents/PrepoznavanjeOblikaDivide/Test'
     img = np.array(img)
     saveImage(cv2.cvtColor(img, cv2.COLOR_BGR2RGB), newpath, str(br)+".jpg")
     br += 1

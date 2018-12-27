@@ -5,12 +5,12 @@ from PIL import Image
 from skimage.feature import hog
 from resizeimage import resizeimage
 
-imageDir = "/home/bebo/Documents/PrepoznavanjeOblika/Deskriptor/SL1"
-hogPath = "/home/bebo/Documents/PrepoznavanjeOblika/Deskriptor/DeskriptorBiljka1"
+imageDir = "/home/nejra/Documents/PrepoznavanjeOblika/Deskriptor/DeskriptorBiljka1UnsharpingMask"
+hogPath = "/home/nejra/Documents/PrepoznavanjeOblika/Deskriptor/DeskriptorBiljka1Unsharping"
 
 def createDescriptor(image):
     image = resizeimage.resize_cover(image, [50, 50])
-    gray = cv2.cvtColor(np.array(image), cv2.COLOR_BGR2GRAY)
+    #gray = cv2.cvtColor(np.array(image), cv2.COLOR_BGR2GRAY)
     fd, hog_image = hog(image, orientations=8, pixels_per_cell=(12, 12), cells_per_block=(4, 4), block_norm='L2', visualize=True)
 
     return fd, hog_image
@@ -34,7 +34,7 @@ for file in os.listdir(imageDir):
 for imagePath in image_path_list:
     img = Image.open(imagePath)
 
-    #print(imagePath[56:])
+    #print(imagePath[84:])
 
     #print(img)
 
@@ -44,7 +44,7 @@ for imagePath in image_path_list:
 
     #print(hog_features)
 
-    fullpath = os.path.join(hogPath, 'hog_'+imagePath[56:])
+    fullpath = os.path.join(hogPath, 'hog_'+imagePath[84:])
     cv2.imwrite(fullpath, hog_image)
 
     br += 1
